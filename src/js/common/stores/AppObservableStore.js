@@ -216,8 +216,11 @@ export default {
   },
 
   getWeVoteRootURL () {
+    console.log('getWeVoteRootURL nonFluxState.onWeVoteRootUrl:', nonFluxState.onWeVoteRootUrl);
+    console.log('hostname:', window.location.hostname);
+    console.log('origin:', window.location.origin);
     const { location: { hostname, origin } } = window;
-    if (hostname === 'localhost') {
+    if (hostname === 'localhost' || hostname === 'quality.wevote.us') {
       return origin; // ex/ https://localhost:3000
     } else {
       return 'https://wevote.us';
